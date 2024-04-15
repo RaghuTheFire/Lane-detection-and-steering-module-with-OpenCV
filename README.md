@@ -19,3 +19,21 @@ Here's a breakdown of what the code is doing:
 15. Finally, the code displays the original frame and the bird's eye view frame in separate windows.
 16. The loop continues until the user presses the 'q' key to exit the program.
 Overall, this code is designed to detect and analyze the lane lines in a video feed, which could be useful for applications such as autonomous vehicle control or driver assistance systems.
+
+This C++ code is using the OpenCV library to perform image processing on a video file. 
+Here's a breakdown of what the code is doing: 
+1. The code includes the necessary OpenCV header files.
+2. The `read_vid()` function is defined, which creates a `cv::VideoCapture` object and opens the video file "drive.mp4".
+3. In the `main()` function, the `read_vid()` function is called to create a `cv::VideoCapture` object named `img`.
+4. The code then enters a loop that continues until the user presses the 'q' key or the video ends.
+5. Inside the loop, the code reads a frame from the video using `img.read(frame)` and converts it to grayscale using `cv::cvtColor()`.
+6. The grayscale image is then processed using the Canny edge detection algorithm to create an edge map.
+7. The code then defines two sets of points, `pts1` and `pts2`, which are used to perform a perspective transformation on the frame. This is likely done to create a "bird's-eye" view of the scene.
+8. The perspective transformation is applied using `cv::getPerspectiveTransform()` and `cv::warpPerspective()`, and the resulting "bird's-eye" view is stored in the `birds_eye` variable.
+9. The "bird's-eye" view is then split into two halves, `birds_eye_r` and `birds_eye_l`, which are likely used for further processing.
+10. The code then draws circles on the original frame at the locations of the `pts1` points, and creates a region of interest (ROI) in the frame.
+11. The "bird's-eye" view is converted to grayscale, and a threshold is applied to create binary images `thresh`, `thresh_r`, and `thresh_l`.
+12. The code then uses the `cv::HoughLinesP()` function to detect lines in the binary images, and draws these lines on the "bird's-eye" view.
+13. Finally, the code displays the original frame and the "bird's-eye" view using `cv::imshow()`, and waits for the user to press the 'q' key or for the video to end.
+Overall, this code appears to be performing some kind of lane detection or road analysis on a video feed, using OpenCV's image processing capabilities.
+
