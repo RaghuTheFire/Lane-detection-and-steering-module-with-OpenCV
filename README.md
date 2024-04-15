@@ -1,7 +1,5 @@
 # Lane-detection-and-steering-module-with-OpenCV
-Lane detection and steering module with OpenCV 
-
-
+# lane_detect_new.cpp
 This C++ code is using the OpenCV library to process a video file and detect lane lines on the road. 
 Here's a breakdown of what the code is doing: 
 1. The code starts by including the necessary OpenCV header files and the `cmath` library.
